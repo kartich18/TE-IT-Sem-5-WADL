@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Register - Newsletter Subscription</title>
+    <style>
+        .content {
+            width: 90%;
+            max-width: 500px;
+            margin: 5% auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .error-message {
+            color: #ff0000;
+            display: none;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div data-role="page" id="registerPage" style="background-color:aliceblue;">
+        <div data-role="header" data-theme="b">
+            <h1>My Website</h1>
+        </div>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="index.html" data-ajax="false">Home</a></li>
+                <li><a href="about_us.html" data-ajax="false">About</a></li>
+                <li><a href="#registerPage" class="ui-btn-active">Register for Newsletter</a></li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <h3 style="text-align: center;">Newsletter Registration</h3>
+            
+            <form id="registerForm" method="POST" action="#" data-ajax="false">
+                <div class="form-group">
+                    <label for="userName">Username:</label>
+                    <input type="text" name="userName" id="userName" required>
+                    <div id="userNameError" class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required>
+                    <div id="emailError" class="error-message"></div>
+                </div>
+
+                <!-- Add this in the head section -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+                
+                    <!-- Update the styles -->
+                    <style>
+                        .password-container {
+                            position: relative;
+                            display: flex;
+                            align-items: center;
+                        }
+                        .password-toggle {
+                            position: absolute;
+                            right: 10px;
+                            background: none;
+                            border: none;
+                            color: #666;
+                            cursor: pointer;
+                            padding: 5px;
+                            z-index: 2;
+                        }
+                        #password {
+                            padding-right: 35px;
+                        }
+                    </style>
+                
+                    <!-- Update the password input section -->
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <div class="password-container">
+                            <input type="password" name="password" id="password" required>
+                            <i class="password-toggle fas fa-eye" id="togglePassword"></i>
+                        </div>
+                        <div id="passwordError" class="error-message"></div>
+                    </div>
+                
+                    <!-- Update the toggle password script -->
+                    <script>
+                        $(document).ready(function() {
+                            $('#togglePassword').on('click', function() {
+                                const passwordInput = $('#password');
+                                const toggleIcon = $(this);
+                                
+                                if (passwordInput.attr('type') === 'password') {
+                                    passwordInput.attr('type', 'text');
+                                    toggleIcon.removeClass('fa-eye').addClass('fa-eye-slash');
+                                } else {
+                                    passwordInput.attr('type', 'password');
+                                    toggleIcon.removeClass('fa-eye-slash').addClass('fa-eye');
+                                }
+                            });
+                        });
+                    </script>
+                <div style="text-align: center;">
+                    <button type="submit" class="ui-btn ui-btn-inline ui-corner-all">Register Me</button>
+                </div>
+            </form>
+        </div>
+
+        <div data-role="footer">
+            <div style="text-align: center;">
+                <a href="index.html" class="ui-btn ui-btn-inline" data-ajax="false">Home</a>
+                <a href="about_us.html" class="ui-btn ui-btn-inline" data-ajax="false">About</a>
+                <a href="#registerPage" class="ui-btn ui-btn-inline">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#registerForm').on('submit', function(e) {
+                e.preventDefault();
+                let isValid = true;
+                
+                // Username validation
+                const username = $('#userName').val().trim();
+                if(username.length < 3) {
+                    $('#userNameError').text('Username must be at least 3 characters').show();
+                    isValid = false;
+                } else {
+                    $('#userNameError').hide();
+                }
+
+                // Email validation
+                const email = $('#email').val().trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if(!emailRegex.test(email)) {
+                    $('#emailError').text('Please enter a valid email address').show();
+                    isValid = false;
+                } else {
+                    $('#emailError').hide();
+                }
+
+                // Password validation
+                const password = $('#password').val();
+                if(password.length < 6) {
+                    $('#passwordError').text('Password must be at least 6 characters').show();
+                    isValid = false;
+                } else {
+                    $('#passwordError').hide();
+                }
+
+                if(isValid) {
+                    // Here you would typically send the data to your server
+                    alert('Registration successful!');
+                    window.location.href = 'index.html';
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            // Add this new code for password toggle
+            $('#togglePassword').on('click', function() {
+                const passwordInput = $('#password');
+                const toggleBtn = $(this);
+                
+                if (passwordInput.attr('type') === 'password') {
+                    passwordInput.attr('type', 'text');
+                    toggleBtn.text('Hide');
+                } else {
+                    passwordInput.attr('type', 'password');
+                    toggleBtn.text('Show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

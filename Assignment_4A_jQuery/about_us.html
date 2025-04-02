@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>About - Image Gallery</title>
+    <style>
+        .content {
+            padding: 20px;
+            text-align: center;
+            line-height: 1.6;
+        }
+        .content p {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div data-role="page" id="aboutPage" style="background-color:aliceblue;">
+        <div data-role="header" data-theme="b">
+            <h1>My Website</h1>
+        </div>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="index.html" data-ajax="false">Home</a></li>
+                <li><a href="#aboutPage" class="ui-btn-active">About</a></li>
+                <li><a href="register.html" data-ajax="false">Register for Newsletter</a></li>
+            </ul>
+        </div>
+        <div style="text-align: center;">
+            <h3>About Us</h3>
+        </div>
+        <div class="content">
+            <p>
+                Welcome to our HD image gallery! We generated these high-quality images from 
+                <a href="https://m365.cloud.microsoft/?fromCode=cmcv2&redirectId=05F913AEC9E04F67973A9524A914F5BE&internalredirect=CCM" target="_blank" rel="noopener noreferrer">microsoft 365 Copilot</a>. 
+                Our gallery showcases a diverse collection of stunning photographs for your viewing pleasure.
+            </p>
+        </div>
+        <div data-role="footer">
+            <div style="text-align: center;">
+                <a href="index.html" class="ui-btn ui-btn-inline" data-ajax="false">Home</a>
+                <a href="#aboutPage" class="ui-btn ui-btn-inline">About</a>
+                <a href="register.html" class="ui-btn ui-btn-inline" data-ajax="false">Register</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
