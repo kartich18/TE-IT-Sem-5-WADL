@@ -81,10 +81,13 @@ import { CommonModule } from '@angular/common';
     </div>
   `,
   styles: [`
-    .container { max-width: 800px; }
-    .card { box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    .card-header { background-color: #f8f9fa; }
-    .btn-primary { width: 100%; }
+    .container { width: 100%; padding: 20px; text-align: center; }
+    .card { box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+    .card-header { background-color: #f8f9fa; padding: 10px; border-bottom: 1px solid #ddd; }
+    .btn-primary { width: 100%; transition: background-color 0.3s ease; }
+    .btn-primary:hover { background-color: #0056b3; }
+    .form-control { border-radius: 4px; }
+    .invalid-feedback { color: #dc3545; font-size: 0.9em; }
   `]
 })
 export class RegisterComponent {

@@ -48,37 +48,16 @@ import { CommonModule } from '@angular/common';
       </div>
     </div>
   `,
-  
   styles: [`
-    .container { max-width: 800px; }
-    .card { box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    .card-header { background-color: #f8f9fa; }
-    .avatar-placeholder {
-      width: 100px;
-      height: 100px;
-      background-color: #e9ecef;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-    }
-    .avatar-placeholder i {
-      font-size: 48px;
-      color: #6c757d;
-    }
-    .user-info {
-      margin-top: 20px;
-    }
-    .info-item {
-      padding: 10px;
-      border-bottom: 1px solid #eee;
-      display: flex;
-      justify-content: space-between;
-    }
-    .info-item:last-child {
-      border-bottom: none;
-    }
+    .container { width: 100%; padding: 20px; text-align: center; }
+    .card { box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+    .card-header { background-color: #f8f9fa; padding: 10px; border-bottom: 1px solid #ddd; }
+    .avatar-placeholder { width: 100px; height: 100px; background-color: #e9ecef; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; transition: background-color 0.3s ease; }
+    .avatar-placeholder:hover { background-color: #d6d8db; }
+    .info-item { padding: 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+    .info-item:last-child { border-bottom: none; }
+    .btn-danger { transition: background-color 0.3s ease; }
+    .btn-danger:hover { background-color: #c82333; }
   `]
 })
 export class ProfileComponent implements OnInit {

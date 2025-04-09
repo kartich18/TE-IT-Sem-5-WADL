@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+body {
+  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated font */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f9; /* Light background color */
+}
+
+.container {
+  width: 100%; /* Full width */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center; /* Centered content */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+button {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Flexbox and Grid Enhancements */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+
+.col {
+  flex: 1;
+  padding: 10px;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .col {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
