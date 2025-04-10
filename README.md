@@ -1,6 +1,6 @@
 # Web Application Development Lab (WADL) Assignments
 
-This repository contains my assignments for the subject **Web Application Development Lab (WADL)** during the 5th semester of my IT program. The assignments focus on building web applications using modern technologies and frameworks.
+This repository contains my assignments for the subject **Web Application Development Lab (WADL)** during the 6th semester of my IT program. The assignments focus on building web applications using modern technologies and frameworks.
 
 ## Assignments Overview
 
@@ -66,7 +66,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Author
 Kartik  
-IT Student, Semester 5  
+IT Student, Semester 6
 TE-LABS
 ```
 
