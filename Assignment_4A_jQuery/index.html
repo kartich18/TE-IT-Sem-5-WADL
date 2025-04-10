@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Image Gallery - jQuery Mobile Demo</title>
+    <style>
+        .gallery-container {
+            text-align: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .rows {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+        .rows::-webkit-scrollbar {
+            height: 8px;
+        }
+        .rows::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        .rows::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        .rows img {
+            min-width: 240px;
+            width: 240px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        .rows img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .page-title {
+            color: #333;
+            margin: 20px 0;
+            font-size: 2em;
+        }
+        .loading-spinner {
+            display: none;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div data-role="page" id="galleryPage" style="background-color:aliceblue;">
+        <div data-role="header" data-theme="b">
+            <h1>My Website</h1>
+        </div>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#galleryPage" class="ui-btn-active">Home</a></li>
+                <li><a href="about_us.html" data-ajax="false">About</a></li>
+                <li><a href="register.html" data-ajax="false">Register</a></li>
+            </ul>
+        </div>
+        <div style="text-align: center;">
+            <h3>Gallery</h3>
+        </div>
+        <div class="gallery-container">
+            <div class="loading-spinner">Loading...</div>
+            <div id="gallery-content"></div>
+        </div>
+
+        <div data-role="footer">
+            <div style="text-align: center;">
+                <a href="#galleryPage" class="ui-btn ui-btn-inline">Home</a>
+                <a href="about_us.html" class="ui-btn ui-btn-inline" data-ajax="false">About</a>
+                <a href="register.html" class="ui-btn ui-btn-inline" data-ajax="false">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            const galleryContent = $('#gallery-content');
+            const loadingSpinner = $('.loading-spinner');
+            const config = {
+                numRows: 10,          // Changed from 12 to 10
+                imagesPerRow: 6,
+                totalUniqueImages: 6,
+                imageWidth: 240,
+                imageHeight: 200,
+                maxRows: 10           // Added maximum rows limit
+            };
+            
+            let currentRows = 0;      // Added to track number of rows
+            let isLoading = false;
+
+            function createImage(imageNumber) {
+                return $('<img>').attr({
+                    'src': `img${imageNumber}.jpeg`,
+                    'alt': `Gallery Image ${imageNumber}`,
+                    'loading': 'lazy'
+                }).on('error', function() {
+                    $(this).attr({
+                        'src': 'placeholder.jpeg',
+                        'alt': 'Image not found'
+                    });
+                });
+            }
+
+            function createRow() {
+                const rowDiv = $('<div>').addClass('rows');
+                
+                for(let i = 1; i <= config.imagesPerRow; i++) {
+                    const imageNumber = ((i - 1) % config.totalUniqueImages) + 1;
+                    rowDiv.append(createImage(imageNumber));
+                }
+                
+                return rowDiv;
+            }
+
+            function loadGallery() {
+                if (isLoading || currentRows >= config.maxRows) return;
+                
+                isLoading = true;
+                loadingSpinner.show();
+                
+                for(let row = 0; row < config.numRows && currentRows < config.maxRows; row++) {
+                    galleryContent.append(createRow());
+                    currentRows++;
+                }
+                
+                loadingSpinner.hide();
+                isLoading = false;
+            }
+
+            function loadMoreImages() {
+                if (isLoading || currentRows >= config.maxRows) return;
+                
+                isLoading = true;
+                loadingSpinner.show();
+                
+                galleryContent.append(createRow());
+                currentRows++;
+                
+                loadingSpinner.hide();
+                isLoading = false;
+            }
+
+            // Initialize gallery
+            loadGallery();
+
+            // Infinite scroll with row limit
+            $(window).on('scroll', function() {
+                if(currentRows < config.maxRows && 
+                   $(window).scrollTop() + $(window).height() > $(document).height() - 200) {
+                    loadMoreImages();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

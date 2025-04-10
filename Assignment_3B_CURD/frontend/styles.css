@@ -1,0 +1,76 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Updated font */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* Softer background color */
+}
+
+.navbar {
+    background-color: #007bff; /* Modern blue color */
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.navbar button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #0056b3;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navbar button:hover {
+    background-color: #003d82;
+}
+
+.form-container {
+    display: none;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    max-width: 500px; /* Increased width */
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+input, button {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ddd; /* Light border */
+}
+
+.response {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    max-width: 500px; /* Increased width */
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.user-card {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+}
