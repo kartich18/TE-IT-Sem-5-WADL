@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Import cors package
 const connectDB = require('./config/dbConfig');
 const userRoutes = require('./routes/userRoutes');
 
@@ -9,6 +10,7 @@ const app = express();
 connectDB();
 
 // Middleware
+app.use(cors()); // Use cors middleware
 app.use(bodyParser.json());
 
 // Routes

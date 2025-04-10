@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <button onclick="showForm('createForm')">Create User</button>
+        <button onclick="showForm('getForm')">Get User by ID</button>
+        <button onclick="showForm('updateForm')">Update User by ID</button>
+        <button onclick="showForm('deleteForm')">Delete User by ID</button>
+        <button onclick="getAllUsers()">Get All Users</button>
+    </div>
+
+    <div id="createForm" class="form-container">
+        <h3>Create a New User</h3>
+        <input type="text" id="createUsername" placeholder="Username" required>
+        <input type="password" id="createPassword" placeholder="Password" required>
+        <input type="email" id="createEmail" placeholder="Email" required>
+        <button type="button" onclick="createUser()">Submit</button>
+    </div>
+
+    <div id="getForm" class="form-container">
+        <h3>Get a Single User by ID</h3>
+        <input type="text" id="getUserId" placeholder="User ID" required>
+        <button type="button" onclick="getUserById()">Submit</button>
+    </div>
+
+    <div id="updateForm" class="form-container">
+        <h3>Update a User by ID</h3>
+        <input type="text" id="updateUserId" placeholder="User ID" required>
+        <input type="text" id="updateUsername" placeholder="New Username">
+        <input type="password" id="updatePassword" placeholder="New Password">
+        <input type="email" id="updateEmail" placeholder="New Email">
+        <button type="button" onclick="updateUserById()">Submit</button>
+    </div>
+
+    <div id="deleteForm" class="form-container">
+        <h3>Delete a User by ID</h3>
+        <input type="text" id="deleteUserId" placeholder="User ID" required>
+        <button type="button" onclick="deleteUserById()">Submit</button>
+    </div>
+
+    <div id="response" class="response"></div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
