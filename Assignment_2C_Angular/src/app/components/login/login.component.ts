@@ -41,7 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
                 <div class="form-group mb-3">
                   <label for="password">Password</label>
                   <input
-                    type="password"
+                    [type]="showPassword ? 'text' : 'password'"
                     class="form-control"
                     id="password"
                     formControlName="password"
@@ -49,6 +49,15 @@ import { ReactiveFormsModule } from '@angular/forms';
                   />
                   <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
                     <div *ngIf="f['password'].errors['required']">Password is required</div>
+                  </div>
+                  <div class="form-check mt-2">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      id="showPassword"
+                      (change)="toggleShowPassword()"
+                    />
+                    <label class="form-check-label" for="showPassword">Show Password</label>
                   </div>
                 </div>
 
@@ -71,19 +80,53 @@ import { ReactiveFormsModule } from '@angular/forms';
     </div>
   `,
   styles: [`
-    .container { width: 100%; padding: 20px; text-align: center; }
-    .card { box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
-    .card-header { background-color: #f8f9fa; padding: 10px; border-bottom: 1px solid #ddd; }
-    .btn-primary { width: 100%; transition: background-color 0.3s ease; }
-    .btn-primary:hover { background-color: #0056b3; }
-    .form-control { border-radius: 4px; }
-    .invalid-feedback { color: #dc3545; font-size: 0.9em; }
+    .container { 
+      width: 100%; 
+      padding: 40px; 
+      text-align: center; 
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+    }
+    .card { 
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+      border-radius: 8px; 
+      overflow: hidden; 
+      width: 100%; 
+      max-width: 600px; 
+    }
+    .card-header { 
+      background-color: #f8f9fa; 
+      padding: 20px; 
+      border-bottom: 1px solid #ddd; 
+    }
+    .btn-primary { 
+      width: 100%; 
+      transition: background-color 0.3s ease; 
+      margin-top: 20px; 
+    }
+    .btn-primary:hover { 
+      background-color: #0056b3; 
+    }
+    .form-control { 
+      border-radius: 4px; 
+      margin: 10px 0; 
+    }
+    .invalid-feedback { 
+      color: #dc3545; 
+      font-size: 0.9em; 
+    }
+    .form-group { 
+      margin-bottom: 20px; 
+    }
   `]
 })
 export class LoginComponent {
   loginForm: FormGroup;
   submitted = false;
   error = '';
+  showPassword = false; // Add this line
 
   constructor(
     private formBuilder: FormBuilder,
@@ -98,6 +141,10 @@ export class LoginComponent {
 
   get f() {
     return this.loginForm.controls;
+  }
+
+  toggleShowPassword() { // Add this method
+    this.showPassword = !this.showPassword;
   }
 
   onSubmit() {

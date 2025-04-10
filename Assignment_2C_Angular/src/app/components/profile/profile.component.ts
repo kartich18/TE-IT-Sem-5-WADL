@@ -49,15 +49,59 @@ import { CommonModule } from '@angular/common';
     </div>
   `,
   styles: [`
-    .container { width: 100%; padding: 20px; text-align: center; }
-    .card { box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
-    .card-header { background-color: #f8f9fa; padding: 10px; border-bottom: 1px solid #ddd; }
-    .avatar-placeholder { width: 100px; height: 100px; background-color: #e9ecef; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; transition: background-color 0.3s ease; }
-    .avatar-placeholder:hover { background-color: #d6d8db; }
-    .info-item { padding: 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
-    .info-item:last-child { border-bottom: none; }
-    .btn-danger { transition: background-color 0.3s ease; }
-    .btn-danger:hover { background-color: #c82333; }
+    .container { 
+      width: 100%; 
+      padding: 40px; 
+      text-align: center; 
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+    }
+    .card { 
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+      border-radius: 8px; 
+      overflow: hidden; 
+      width: 100%; 
+      max-width: 1000px;
+    }
+    .card-header { 
+      background-color: #f8f9fa; 
+      padding: 20px; 
+      border-bottom: 1px solid #ddd; 
+    }
+    .avatar-placeholder { 
+      width: 100px; 
+      height: 100px; 
+      background-color: #e9ecef; 
+      border-radius: 50%; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      margin: 0 auto; 
+      transition: background-color 0.3s ease; 
+      margin-bottom: 20px; 
+    }
+    .avatar-placeholder:hover { 
+      background-color: #d6d8db; 
+    }
+    .info-item { 
+      padding: 15px; 
+      border-bottom: 1px solid #eee; 
+      display: flex; 
+      justify-content: space-between; 
+      margin: 10px 0; 
+    }
+    .info-item:last-child { 
+      border-bottom: none; 
+    }
+    .btn-danger { 
+      transition: background-color 0.3s ease; 
+      margin-top: 20px; 
+    }
+    .btn-danger:hover { 
+      background-color: #c82333; 
+    }
   `]
 })
 export class ProfileComponent implements OnInit {

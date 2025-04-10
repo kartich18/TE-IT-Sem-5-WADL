@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated font */
+  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 0;
@@ -9,17 +9,19 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f4f4f9; /* Light background color */
+  background-color: #f4f4f9;
 }
 
+/* Container */
 .container {
-  width: 100%; /* Full width */
+  width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 20 auto;
   padding: 20px;
-  text-align: center; /* Centered content */
+  text-align: center;
 }
 
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
   color: #333;
   margin-bottom: 20px;
@@ -29,13 +31,24 @@ p {
   margin-bottom: 20px;
 }
 
-button {
+/* Buttons */
+.button {
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
+.button:hover {
   background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
 }
 
 /* Flexbox and Grid Enhancements */
@@ -50,15 +63,42 @@ button:hover {
   padding: 10px;
 }
 
+/* Cards */
 .card {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 /* Responsive Design */
